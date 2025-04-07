@@ -17,6 +17,35 @@ const Game = () => {
         });
         setDeck(newDeck)
     }
-    initializeDeck()
-    console.log(deck)
-}
+    const dealCards= () => {
+        const newPlayerHand = [deck.pop(), deck.pop()];
+        const newDelearHand = [deck.pop(), deck.pop()];
+        setPlayerHand(newPlayerHand);
+        setDealerHand(newDelearHand);
+
+    }
+    const startGame = () => {
+        initializeDeck();
+        dealCards();
+        setGameStatus('playing');
+    }
+    return (
+        <div>
+            <button onClick={startGame}>Start Game</button>
+            <div>
+                <h2>Players Hand</h2>
+                {playerHand.map((card, index) => (
+                    <div key={index}>{card.value} of {cardsuit}</div>
+                ))}
+            </div>
+            <div>
+                <h2>Dealers Hand</h2>
+                {dealerHand.map((card, index)=> (
+                    <div key={index}>{card.value} of {card.suit}</div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default Game;
