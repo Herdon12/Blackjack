@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Layout from './components/Layout'
 import './App.css'
-import Game
+import Game from './components/Game'
 
 function App() {
   
